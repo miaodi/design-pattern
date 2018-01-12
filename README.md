@@ -9,3 +9,9 @@ A design pattern names, abstracts and identifies the key aspects of a common des
 * ### [Builder](./builder/)
     Separate the construction of a complex object from its representation so that the same construction process can create different representations.
 * ### Factory Method
+
+## Structural Patterns
+    Structural patterns are concerned with how classes and objects are composed to form larger structures.
+
+* ### [Adapter](./adapter)
+    __Convert__ the interface of a class into another interface clients expect. Adapter lets classes work  together that couldn't otherwise because of incompatible interface.
