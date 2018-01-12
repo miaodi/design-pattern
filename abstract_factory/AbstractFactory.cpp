@@ -13,9 +13,9 @@ private:
   int _size;
 };
 
-// Pure virtual destructor are legal in standard C++ and one of the most important thing is that if 
+// Pure virtual destructor are legal in standard C++ and one of the most important thing is that if
 // class contains pure virtual destructor it is must to provide a function body for the pure virtual destructor.
-AbstractWheel::~AbstractWheel(){}
+AbstractWheel::~AbstractWheel() {}
 
 int AbstractWheel::get() const
 {
@@ -56,7 +56,7 @@ private:
   std::string _color;
 };
 
-AbstractBody::~AbstractBody(){}
+AbstractBody::~AbstractBody() {}
 
 std::string AbstractBody::get() const
 {

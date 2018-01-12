@@ -1,3 +1,8 @@
 # Builder
 
-The __abstract factory pattern__ provides a way to encapsulate a group of individual factories that have a __common theme__ without specifying their concrete classes. In normal usage, the client solftware creates a concrete implementation of the abstract factory and then uses the generic interface of the factory to create the concrete objects that are part of the theme.
+The __builder pattern__ are used to create object of a __complex aggregate__. 
+
+## Applicability
+
+* The algorithm for creating a complex object should be independent of the parts that make up the object and how they're assembled.
+* The construction process must allow different representations for the object that's constructed.
