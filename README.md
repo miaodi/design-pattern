@@ -4,8 +4,8 @@ A design pattern names, abstracts and identifies the key aspects of a common des
 
 ## Creational Patterns
 
-* ### [Abstract Factory](./abstract_factory/README.md)
+* ### [Abstract Factory](./abstract_factory/)
     Provide an interface for creating families of __related or dependent__ objects without specifying their concrete classes.
-* ### [Builder](./builder/README.md)
+* ### [Builder](./builder/)
     Separate the construction of a complex object from its representation so that the same construction process can create different representations.
 * ### Factory Method
