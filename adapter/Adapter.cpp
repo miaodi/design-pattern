@@ -1,137 +1,82 @@
 #include <iostream>
 #include <string>
 
-class AbstractWheel
+class Wheel
 {
 public:
-  AbstractWheel() = default;
-  int get() const;
-  void set(int);
-  virtual ~AbstractWheel() = 0;
+  bool IsFlat() const;
+  void Set(bool condition);
 
 private:
-  int _size;
+  bool _flat{true};
 };
-
-// Pure virtual destructor are legal in standard C++ and one of the most important thing is that if
-// class contains pure virtual destructor it is must to provide a function body for the pure virtual destructor.
-AbstractWheel::~AbstractWheel() {}
-
-int AbstractWheel::get() const
+bool Wheel::IsFlat() const
 {
-  return _size;
+  return _flat;
 }
 
-void AbstractWheel::set(int i)
+void Wheel::Set(bool condition)
 {
-  _size = i;
+  _flat = condition;
 }
 
-class JeepWheel : public AbstractWheel
+class Car
 {
 public:
-  JeepWheel()
-  {
-    AbstractWheel::set(5);
-  }
-};
-
-class MiniWheel : public AbstractWheel
-{
-public:
-  MiniWheel()
-  {
-    AbstractWheel::set(3);
-  }
-};
-
-class AbstractBody
-{
-public:
-  std::string get() const;
-  void set(std::string);
-  virtual ~AbstractBody() = 0;
+  bool InstallWheel(Wheel *, int);
 
 private:
-  std::string _color;
+  Wheel *_wheels[4];
 };
 
-AbstractBody::~AbstractBody() {}
-
-std::string AbstractBody::get() const
+bool Car::InstallWheel(Wheel *wheel, int i)
 {
-  return _color;
-}
-
-void AbstractBody::set(std::string color)
-{
-  _color = color;
-}
-
-class JeepBody : public AbstractBody
-{
-public:
-  JeepBody()
+  if (wheel->IsFlat() == false)
   {
-    AbstractBody::set("Blue");
+    _wheels[i] = wheel;
+    return true;
   }
-};
-
-class MiniBody : public AbstractBody
-{
-public:
-  MiniBody()
+  else
   {
-    AbstractBody::set("Yellow");
+    return false;
   }
-};
-
-class AbstractFactory
-{
-public:
-  virtual AbstractWheel *MakeWheel() = 0;
-  virtual AbstractBody *MakeBody() = 0;
-};
-
-class MiniFactory : public AbstractFactory
-{
-public:
-  AbstractWheel *MakeWheel();
-  AbstractBody *MakeBody();
-};
-
-AbstractWheel *MiniFactory::MakeWheel()
-{
-  return new MiniWheel();
 }
 
-AbstractBody *MiniFactory::MakeBody()
-{
-  return new MiniBody();
-}
-
-class JeepFactory : public AbstractFactory
+class SpareTire
 {
 public:
-  AbstractWheel *MakeWheel();
-  AbstractBody *MakeBody();
+  int GetPressure() const;
+  void Pump(int pressure);
+
+private:
+  int _pressure;
 };
 
-AbstractWheel *JeepFactory::MakeWheel()
+int SpareTire::GetPressure() const
 {
-  return new JeepWheel();
+  return _pressure;
 }
 
-AbstractBody *JeepFactory::MakeBody()
+void SpareTire::Pump(int pressure)
 {
-  return new JeepBody();
+  _pressure = pressure;
+}
+
+class Adapter : public Wheel
+{
+public:
+  Adapter() = delete;
+  Adapter(SpareTire *);
+
+private:
+  SpareTire *_spareTire;
+};
+
+Adapter(SpareTire *tire)
+{
+  _spareTire = tire;
 }
 
 int main()
 {
-  auto mini_car_maker = new MiniFactory();
-  auto jeep_car_maker = new JeepFactory();
-  std::cout << mini_car_maker->MakeBody()->get() << std::endl;
-  std::cout << jeep_car_maker->MakeBody()->get() << std::endl;
-  return 0;
 }
