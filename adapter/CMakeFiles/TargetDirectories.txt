@@ -1,0 +1,3 @@
+/Users/dimiao/design-pattern/adapter/CMakeFiles/rebuild_cache.dir
+/Users/dimiao/design-pattern/adapter/CMakeFiles/edit_cache.dir
+/Users/dimiao/design-pattern/adapter/CMakeFiles/Adapter.dir

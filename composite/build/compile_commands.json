@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/Users/dimiao/design-pattern/composite/build",
+  "command": "/usr/bin/clang++    -g   -std=gnu++1z -o CMakeFiles/Composite.dir/Composite.cpp.o -c /Users/dimiao/design-pattern/composite/Composite.cpp",
+  "file": "/Users/dimiao/design-pattern/composite/Composite.cpp"
+}
+]

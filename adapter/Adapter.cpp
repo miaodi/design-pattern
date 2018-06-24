@@ -31,7 +31,7 @@ private:
 
 bool Car::InstallWheel(Wheel *wheel, int i)
 {
-  if (wheel->IsFlat() == false)
+  if (wheel->IsFlat() == true)
   {
     _wheels[i] = wheel;
     return true;
@@ -72,11 +72,12 @@ private:
   SpareTire *_spareTire;
 };
 
-Adapter(SpareTire *tire)
+Adapter::Adapter(SpareTire *tire)
 {
   _spareTire = tire;
 }
 
 int main()
 {
+  return 0;
 }
